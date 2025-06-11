@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Cookie Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f9f9f9;
+    }
+    input, select, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>:cookie: Advanced Cookie Calculator</h1>
+  <input type="number" id="num1" placeholder="First Number">
+  <input type="number" id="num2" placeholder="Second Number">
+  <select id="operation">
+    <option value="+">+</option>
+    <option value="-">−</option>
+    <option value="*">×</option>
+    <option value="/">÷</option>
+  </select>
+  <button onclick="calculate()">Calculate</button>
+  <div id="result">Result: -</div>
+  <script>
+    // Cookie Set Helper
+    function setCookie(name, value, options = {}) {
+      let cookieStr = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
+      if (options.expires) {
+        cookieStr += `; expires=${options.expires.toUTCString()}`;
+      }
+      if (options.path) {
+        cookieStr += `; path=${options.path}`;
+      }
+      if (options.sameSite) {
+        cookieStr += `; SameSite=${options.sameSite}`;
+      }
+      if (options.secure) {
+        cookieStr += `; Secure`;
+      }
+      document.cookie = cookieStr;
+    }
+    // Cookie Get Helper
+    function getCookie(name) {
+      return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+    }
+    function calculate() {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      const op = document.getElementById("operation").value;
+      let result = "Invalid";
+      if (!isNaN(num1) && !isNaN(num2)) {
+        switch (op) {
+          case "+": result = num1 + num2; break;
+          case "-": result = num1 - num2; break;
+          case "*": result = num1 * num2; break;
+          case "/": result = num2 !== 0 ? num1 / num2 : "Divide by 0"; break;
+        }
+        const now = new Date();
+        const future = new Date(now.getTime() + 7 * 86400000); // 7 days from now
+        // :cookie: Set cookies with different purposes
+        setCookie("first_party_cookie", "basic_cookie", { path: "/" });
+        setCookie("samesite_strict", "only_first_party", {
+          path: "/",
+          sameSite: "Strict",
+          secure: true // will only work over HTTPS
+        });
+        setCookie("session_cookie", "session_value", { path: "/" });
+        setCookie("persistent_cookie", result, {
+          path: "/",
+          expires: future
+        });
+      }
+      document.getElementById("result").textContent = "Result: " + result;
+    }
+    // Load existing result from persistent_cookie
+    window.onload = function () {
+      const persistent = getCookie("persistent_cookie");
+      if (persistent) {
+        document.getElementById("result").textContent = "Last Persistent Result: " + decodeURIComponent(persistent);
+      }
+    };
+  </script>
+</body>
+</html>
