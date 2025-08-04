@@ -19,46 +19,6 @@
       margin-top: 20px;
       font-weight: bold;
     }
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #333;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      z-index: 1000;
-      display: none;
-    }
-    .cookie-banner button {
-      background: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      margin: 0 10px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .cookie-banner button:hover {
-      background: #45a049;
-    }
-    .video-container {
-      margin-top: 20px;
-      text-align: center;
-    }
-    .video-placeholder {
-      width: 560px;
-      height: 315px;
-      background: #f0f0f0;
-      border: 2px dashed #ccc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      color: #666;
-      font-size: 18px;
-    }
   </style>
 </head>
 <body>
@@ -75,18 +35,7 @@
   <button onclick="calculate()">Calculate</button>
   <div id="result">Result: -</div>
   
-  <div class="video-container">
-    <div id="video-placeholder" class="video-placeholder">
-      Accept cookies to watch the video
-    </div>
-    <iframe id="youtube-video" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display: none;"></iframe>
-  </div>
-
-  <div id="cookie-banner" class="cookie-banner">
-    <p>This website uses cookies to enhance your experience. We need your consent to load the YouTube video.</p>
-    <button onclick="acceptCookies()">Accept Cookies</button>
-    <button onclick="declineCookies()">Decline</button>
-  </div>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/pm-YNwjxfKU?si=Fe7yoHgimuq9lcwi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
   <script>
     // Cookie Set Helper
@@ -109,55 +58,6 @@
     // Cookie Get Helper
     function getCookie(name) {
       return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
-    }
-
-    function showCookieBanner() {
-      const banner = document.getElementById('cookie-banner');
-      banner.style.display = 'block';
-    }
-
-    function acceptCookies() {
-      // Set consent cookie
-      const future = new Date();
-      future.setFullYear(future.getFullYear() + 1); // 1 year expiry
-      setCookie("video_consent", "accepted", {
-        path: "/",
-        expires: future,
-        sameSite: "Strict"
-      });
-      
-      // Hide banner
-      document.getElementById('cookie-banner').style.display = 'none';
-      
-      // Load YouTube video
-      loadYouTubeVideo();
-    }
-
-    function declineCookies() {
-      // Set declined consent cookie
-      const future = new Date();
-      future.setFullYear(future.getFullYear() + 1); // 1 year expiry
-      setCookie("video_consent", "declined", {
-        path: "/",
-        expires: future,
-        sameSite: "Strict"
-      });
-      
-      // Hide banner
-      document.getElementById('cookie-banner').style.display = 'none';
-      
-      // Show declined message
-      document.getElementById('video-placeholder').innerHTML = 'Video disabled - cookies declined';
-    }
-
-    function loadYouTubeVideo() {
-      const placeholder = document.getElementById('video-placeholder');
-      const video = document.getElementById('youtube-video');
-      
-      // Hide placeholder and show video
-      placeholder.style.display = 'none';
-      video.style.display = 'block';
-      video.src = 'https://www.youtube.com/embed/pm-YNwjxfKU?si=Fe7yoHgimuq9lcwi';
     }
 
     function calculate() {
@@ -190,22 +90,11 @@
       document.getElementById("result").textContent = "Result: " + result;
     }
 
-    // Load existing result from persistent_cookie and check video consent
+    // Load existing result from persistent_cookie
     window.onload = function () {
       const persistent = getCookie("persistent_cookie");
       if (persistent) {
         document.getElementById("result").textContent = "Last Persistent Result: " + decodeURIComponent(persistent);
-      }
-      
-      // Check video consent
-      const videoConsent = getCookie("video_consent");
-      if (videoConsent === "accepted") {
-        loadYouTubeVideo();
-      } else if (videoConsent === "declined") {
-        document.getElementById('video-placeholder').innerHTML = 'Video disabled - cookies declined';
-      } else {
-        // Show cookie banner if no consent given yet
-        showCookieBanner();
       }
     };
   </script>
