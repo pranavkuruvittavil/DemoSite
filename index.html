@@ -5,7 +5,69 @@
 <meta charset="UTF-8">
   <title>Advanced Cookie Calculator</title>
   <style>
+/* ── First layer: banner-title ── */
+.cky-consent-container .cky-notice-title,
+.cky-consent-container h2,
+.cky-consent-bar .cky-notice-title,
+.cky-consent-bar h2 {
+  /* fixes color: was "rgb(206, 15, 15)", should be "rgb(33, 33, 33)" */
+  color: rgb(33, 33, 33) !important;
+  /* fixes border-color: was "rgb(206, 15, 15)", should be "rgb(33, 33, 33)" */
+  border-color: rgb(33, 33, 33) !important;
+}
 
+/* ── First layer: banner-body-text ── */
+.cky-consent-container .cky-notice-des p,
+.cky-consent-container .cky-notice-des,
+.cky-consent-container p,
+.cky-consent-bar p {
+  /* fixes color: was "rgb(206, 15, 15)", should be "rgb(33, 33, 33)" */
+  color: rgb(33, 33, 33) !important;
+  /* fixes border-color: was "rgb(206, 15, 15)", should be "rgb(33, 33, 33)" */
+  border-color: rgb(33, 33, 33) !important;
+}
+
+/* ── First layer: btn-customize ── */
+.cky-btn-customize {
+  /* fixes margin: was "5px", should be "0px" */
+  margin: 0px !important;
+}
+
+/* ── First layer: btn-reject ── */
+.cky-consent-bar .cky-btn-reject,
+.cky-consent-container .cky-btn-reject:not(.cky-preference-center .cky-btn-reject) {
+  /* fixes margin: was "5px", should be "0px" */
+  margin: 0px !important;
+}
+
+/* ── First layer: btn-accept ── */
+.cky-consent-bar .cky-btn-accept,
+.cky-consent-container .cky-btn-accept:not(.cky-preference-center .cky-btn-accept) {
+  /* fixes margin: was "5px 0px 5px 5px", should be "0px" */
+  margin: 0px !important;
+}
+
+/* ── Second layer (Customise panel): pref-body-text ── */
+.cky-preference-center .cky-category-des p,
+.cky-preference-center .cky-category-des,
+.cky-preference-center p {
+  /* fixes color: was "rgb(206, 15, 15)", should be "rgb(33, 33, 33)" */
+  color: rgb(33, 33, 33) !important;
+  /* fixes border-color: was "rgb(206, 15, 15)", should be "rgb(33, 33, 33)" */
+  border-color: rgb(33, 33, 33) !important;
+}
+
+/* ── Second layer (Customise panel): pref-btn-accept ── */
+.cky-preference-center .cky-btn-accept {
+  /* fixes margin: was "5px 0px 5px 5px", should be "0px" */
+  margin: 0px !important;
+}
+
+/* ── Second layer (Customise panel): pref-btn-reject ── */
+.cky-preference-center .cky-btn-reject {
+  /* fixes margin: was "5px", should be "0px" */
+  margin: 0px !important;
+}
     p{
       color: #ce0f0f !important;
     }
