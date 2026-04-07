@@ -109,6 +109,65 @@
       }
     };
   </script>
+  <!-- Cookie Setter UI -->
+  <hr>
+  <h2>Set a Cookie</h2>
+  <input type="text"   id="cookieName"  placeholder="Cookie name"  style="padding:8px;font-size:15px;margin:4px;">
+  <input type="text"   id="cookieValue" placeholder="Cookie value" style="padding:8px;font-size:15px;margin:4px;">
+  <input type="number" id="cookieDays"  placeholder="Expire in days (optional)" style="padding:8px;font-size:15px;margin:4px;width:220px;">
+  <br>
+  <button onclick="handleSetCookie()" style="margin-top:8px;">Set Cookie</button>
+  <button onclick="handleGetCookie()" style="margin-top:8px;">Get Cookie</button>
+  <button onclick="handleDeleteCookie()" style="margin-top:8px;">Delete Cookie</button>
+  <div id="cookieStatus" style="margin-top:12px;font-weight:bold;"></div>
+
+  <script>
+    function handleSetCookie() {
+      const name  = document.getElementById('cookieName').value.trim();
+      const value = document.getElementById('cookieValue').value.trim();
+      const days  = parseInt(document.getElementById('cookieDays').value, 10);
+
+      if (!name) {
+        document.getElementById('cookieStatus').textContent = 'Please enter a cookie name.';
+        return;
+      }
+
+      const options = { path: '/' };
+      if (!isNaN(days) && days > 0) {
+        const expires = new Date(Date.now() + days * 86400000);
+        Object.assign(options, { expires });
+      }
+
+      setCookie(name, value, options);
+      document.getElementById('cookieStatus').textContent =
+        `✅ Cookie set → ${name} = ${value}` +
+        (!isNaN(days) && days > 0 ? ` (expires in ${days} day(s))` : ' (session cookie)');
+    }
+
+    function handleGetCookie() {
+      const name = document.getElementById('cookieName').value.trim();
+      if (!name) {
+        document.getElementById('cookieStatus').textContent = 'Please enter a cookie name to read.';
+        return;
+      }
+      const val = getCookie(name);
+      document.getElementById('cookieStatus').textContent =
+        val !== undefined
+          ? `🍪 ${name} = ${decodeURIComponent(val)}`
+          : `❌ Cookie "${name}" not found.`;
+    }
+
+    function handleDeleteCookie() {
+      const name = document.getElementById('cookieName').value.trim();
+      if (!name) {
+        document.getElementById('cookieStatus').textContent = 'Please enter a cookie name to delete.';
+        return;
+      }
+      document.cookie = `${encodeURIComponent(name)}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+      document.getElementById('cookieStatus').textContent = `🗑️ Cookie "${name}" deleted.`;
+    }
+  </script>
+
   <!-- Start CookieYes cookie policy -->
 
 <!-- End CookieYes cookie policy -->
