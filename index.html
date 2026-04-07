@@ -5,31 +5,44 @@
 <meta charset="UTF-8">
   <title>Advanced Cookie Calculator</title>
   <style>
-    /* FIX 1 — Banner font-family */
-.cky-consent-container,
-.cky-consent-container * {
+ /* Fix font-family on the overall preference centre container */
+.cky-preference-center {
   font-family: sans-serif !important;
 }
 
-/* FIX 2 — Accept button background-color */
-.cky-consent-container .cky-btn-accept {
-  background-color: rgba(0, 0, 0, 0) !important;
+/* Fix font-family on the preference centre title heading */
+.cky-preference-center .cky-preference-title {
+  font-family: sans-serif !important;
 }
 
-/* FIX 3 — Accept button border-radius */
-.cky-consent-container .cky-btn-accept {
-  border-radius: 2px !important;
+/* Fix font-family on the preference centre header wrapper */
+.cky-preference-center .cky-preference-header {
+  font-family: sans-serif !important;
 }
 
-/* FIX 4 — Accept button padding */
-.cky-consent-container .cky-btn-accept {
-  padding: 8px !important;
-}
-
-/* FIX 5 — Banner paragraph text color */
-.cky-consent-container .cky-notice-des,
-.cky-consent-container p {
+/* Fix text color on the preference centre description paragraph (was red, should be dark grey) */
+.cky-preference-center .cky-preference-body-description {
   color: rgb(33, 33, 33) !important;
+}
+
+/* Fix border color on the preference centre description paragraph (was red, should be dark grey) */
+.cky-preference-center .cky-preference-body-description {
+  border-color: rgb(33, 33, 33) !important;
+}
+
+/* Fix font-family on the preference centre description paragraph */
+.cky-preference-center .cky-preference-body-description {
+  font-family: sans-serif !important;
+}
+
+/* Fix font-family on the "Accept All" button inside the preference centre */
+.cky-preference-center .cky-btn-accept {
+  font-family: sans-serif !important;
+}
+
+/* Fix font-family on the "Reject All" button inside the preference centre */
+.cky-preference-center .cky-btn-reject {
+  font-family: sans-serif !important;
 }
     p{
       color: #ce0f0f !important;
