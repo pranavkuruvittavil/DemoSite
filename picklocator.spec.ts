@@ -11,7 +11,7 @@ const QA1_ADMIN_BASE = 'https://qa2-admin.kilohub.com/login';
  * Text inside the target table cell (default `sample.co.in`). Override with `KILOHUB_WEBSITE_URL`.
  */
 const websiteUrl =
-  process.env.KILOHUB_WEBSITE_URL ?? 'https://delightful-boba-2f6ebe.netlify.app/';
+  process.env.KILOHUB_WEBSITE_URL ?? 'https://delightful-boba-2f6ebe.netlify.app';
 
 const RESULTS_WAIT_MS = 60_000;
 

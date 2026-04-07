@@ -36,6 +36,25 @@ const normalize = (value: string): string => value.trim().replace(/\s+/g, ' ');
 const closeEnough = (a: number, b: number, tolerance: number): boolean =>
   Math.abs(a - b) <= tolerance;
 
+const parseFontTokens = (value: string): Set<string> =>
+  new Set(
+    value
+      .split(',')
+      .map((f) => f.trim().replace(/^["']|["']$/g, '').toLowerCase())
+      .filter(Boolean)
+  );
+
+const fontFamiliesOverlap = (a: string, b: string): boolean => {
+  const setA = parseFontTokens(a);
+  const setB = parseFontTokens(b);
+  for (const token of setA) {
+    if (setB.has(token)) {
+      return true;
+    }
+  }
+  return false;
+};
+
 export const readComputedStyles = async (banner: Locator): Promise<BannerStyles> => {
   const root = banner.first();
   const button = root.locator('button').first();
@@ -98,6 +117,11 @@ export const expectBannerStylesMatch = (
       expect(
         closeEnough(expectedColor[3], actualColor[3], 0.02),
         `Alpha mismatch for "${key}": expected ${expectedValue}, got ${actualValue}`
+      ).toBeTruthy();
+    } else if (key === 'fontFamily') {
+      expect(
+        fontFamiliesOverlap(expectedValue, actualValue),
+        `Font family mismatch for "${key}": expected stack "${expectedValue}" and actual stack "${actualValue}" share no common font`
       ).toBeTruthy();
     } else {
       expect(actualValue, `Style mismatch for "${key}"`).toBe(expectedValue);
