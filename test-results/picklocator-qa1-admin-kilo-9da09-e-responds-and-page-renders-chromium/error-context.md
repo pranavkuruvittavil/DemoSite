@@ -1,0 +1,171 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - banner [ref=e5]:
+        - generic [ref=e6]:
+          - generic [ref=e7]:
+            - button "Navigate to dashboard" [ref=e8]:
+              - img "CookieYes" [ref=e9]
+            - generic [ref=e11]:
+              - generic "http://liveinstalledpluginwithqatwo.local" [ref=e12]: "Debugging: http://liveinstalledpluginwithqatwo.local"
+              - button "Reset debug mode" [ref=e13] [cursor=pointer]
+          - generic [ref=e14]:
+            - button "Become a partner" [ref=e15] [cursor=pointer]:
+              - generic [ref=e16]: Become a partner
+              - img [ref=e17]
+            - button "CookieYes Documentation" [ref=e19] [cursor=pointer]:
+              - generic [ref=e20]: CookieYes Documentation
+              - img [ref=e21]
+            - img [ref=e26] [cursor=pointer]
+            - button [ref=e28] [cursor=pointer]:
+              - img [ref=e30]
+              - img [ref=e33]
+      - navigation "Main" [ref=e35]:
+        - list [ref=e38]:
+          - listitem [ref=e39]:
+            - link "Dashboard" [ref=e40] [cursor=pointer]:
+              - /url: /dashboard
+          - listitem [ref=e41]:
+            - link "Cookie Banner" [active] [ref=e42] [cursor=pointer]:
+              - /url: /customize
+          - listitem [ref=e43]:
+            - link "Cookie Manager" [ref=e44] [cursor=pointer]:
+              - /url: https://qa2-admin.kilohub.com/v1/manage-cookies
+          - listitem [ref=e45]:
+            - link "Consent Log" [ref=e46] [cursor=pointer]:
+              - /url: /consent-logs
+          - listitem [ref=e47]:
+            - link "Languages" [ref=e48] [cursor=pointer]:
+              - /url: https://qa2-admin.kilohub.com/v1/languages
+          - listitem [ref=e49]:
+            - link "Advanced Settings" [ref=e50] [cursor=pointer]:
+              - /url: https://qa2-admin.kilohub.com/v1/advanced-settings
+          - button "More" [ref=e51] [cursor=pointer]
+          - listitem [ref=e52]:
+            - link "Website Search" [ref=e53] [cursor=pointer]:
+              - /url: /administrator/search
+          - listitem [ref=e54]:
+            - link "User Search" [ref=e55] [cursor=pointer]:
+              - /url: /administrator/user-search
+          - listitem [ref=e56]:
+            - link "Users" [ref=e57] [cursor=pointer]:
+              - /url: /administrator/user-list
+          - listitem [ref=e58]:
+            - link "Websites" [ref=e59] [cursor=pointer]:
+              - /url: /administrator/website-list
+          - listitem [ref=e60]:
+            - link "Exports" [ref=e61] [cursor=pointer]:
+              - /url: /administrator/exports
+          - listitem [ref=e62]:
+            - link "Notifications" [ref=e63] [cursor=pointer]:
+              - /url: /administrator/notifications
+          - button "Reports" [ref=e64] [cursor=pointer]
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - text: "Current plan:"
+              - generic [ref=e68]: Ultimate
+            - generic [ref=e69]:
+              - text: "Pageviews used:"
+              - generic [ref=e70]: "0"
+              - button [ref=e71]:
+                - img [ref=e72]
+          - button "Crown Upgrade" [disabled] [ref=e76]:
+            - img "Crown" [ref=e77]
+            - text: Upgrade
+      - generic [ref=e80]:
+        - generic [ref=e83]:
+          - complementary [ref=e84]:
+            - button "General" [ref=e85] [cursor=pointer]:
+              - img [ref=e86]
+              - generic [ref=e88]: General
+            - button "Layout" [ref=e89] [cursor=pointer]:
+              - img [ref=e90]
+              - generic [ref=e99]: Layout
+            - button "Content" [ref=e100] [cursor=pointer]:
+              - img [ref=e101]
+              - generic [ref=e110]: Content
+            - button "Colours" [ref=e111] [cursor=pointer]:
+              - img [ref=e112]
+              - generic [ref=e116]: Colours
+            - button "Custom" [ref=e117] [cursor=pointer]:
+              - img [ref=e118]
+              - generic [ref=e126]: Custom
+              - generic [ref=e127]: CSS
+          - generic [ref=e128]:
+            - generic [ref=e129]:
+              - generic [ref=e130]:
+                - generic [ref=e131]:
+                  - generic [ref=e132]: Consent Template
+                  - button "GDPR" [ref=e133] [cursor=pointer]:
+                    - generic [ref=e134]: GDPR
+                    - img [ref=e135]
+                - generic [ref=e137]: The selected template (opt-in banner) supports GDPR (EU & UK), LGPD (Brazil), PIPEDA (Canada), Law 25 (Quebec), POPIA (South Africa), nFADP (Switzerland), Privacy Act (Australia), PDPL (Saudi Arabia), PDPL (Argentina), PDPL (Andorra), DPA (Faroe Island)
+              - generic [ref=e139]:
+                - generic [ref=e142]: Geo-target banner
+                - radiogroup [ref=e143]:
+                  - generic [ref=e146]:
+                    - radio "Worldwide" [checked] [ref=e147]
+                    - generic [ref=e148] [cursor=pointer]: Worldwide
+                  - generic [ref=e151]:
+                    - radio "EU Countries & UK" [ref=e152]
+                    - generic [ref=e153] [cursor=pointer]: EU Countries & UK
+                  - generic [ref=e156]:
+                    - radio "Select countries" [ref=e157]
+                    - generic [ref=e158] [cursor=pointer]: Select countries
+              - generic [ref=e159]:
+                - generic [ref=e162]:
+                  - generic [ref=e165] [cursor=pointer]:
+                    - text: Support IAB TCF v2.3
+                    - button "customize.general.iabEnable.tooltip" [ref=e166]:
+                      - img [ref=e167]
+                  - switch "Support IAB TCF v2.3 customize.general.iabEnable.tooltip" [ref=e169] [cursor=pointer]
+                - generic [ref=e172]:
+                  - generic [ref=e175] [cursor=pointer]:
+                    - text: Support Google's Additional Consent Mode
+                    - button "customize.general.gacmEnable.tooltip" [ref=e176]:
+                      - img [ref=e177]
+                  - switch "Support Google's Additional Consent Mode customize.general.gacmEnable.tooltip" [disabled] [ref=e179]
+                - generic [ref=e182]:
+                  - generic [ref=e185] [cursor=pointer]:
+                    - text: Enable Google's Advertiser Consent Mode
+                    - button "customize.general.advertiserConsentMode.tooltip" [ref=e186]:
+                      - img [ref=e187]
+                  - switch "Enable Google's Advertiser Consent Mode customize.general.advertiserConsentMode.tooltip" [disabled] [ref=e189]
+              - button "Show advanced settings" [ref=e191] [cursor=pointer]:
+                - img
+                - text: Show advanced settings
+            - button "Publish Changes" [disabled] [ref=e195]:
+              - generic [ref=e196]: Publish Changes
+            - generic [ref=e197]:
+              - button "Desktop preview" [ref=e198] [cursor=pointer]:
+                - img [ref=e199]
+              - button "Tab preview" [ref=e202] [cursor=pointer]:
+                - img [ref=e203]
+              - button "Mobile preview" [ref=e206] [cursor=pointer]:
+                - img [ref=e207]
+        - button "Close customization panel" [ref=e210] [cursor=pointer]:
+          - img [ref=e211]
+        - iframe [ref=e217]:
+          - region "We value your privacy" [ref=f3e32]:
+            - generic [ref=f3e33]:
+              - generic [ref=f3e35]:
+                - heading "We value your privacy" [level=2] [ref=f3e36]
+                - generic [ref=f3e37]:
+                  - paragraph [ref=f3e39]: We use cookies to enhance your browsing experience, serve personalised ads or content, and analyse our traffic. By clicking "Accept All", you consent to our use of cookies.
+                  - generic [ref=f3e40]:
+                    - button "Customise" [ref=f3e41] [cursor=pointer]
+                    - button "Reject All" [ref=f3e42] [cursor=pointer]
+                    - button "Accept All" [ref=f3e43] [cursor=pointer]
+              - generic [ref=f3e46]:
+                - text: Powered by
+                - link "Visit CookieYes website" [ref=f3e47] [cursor=pointer]:
+                  - /url: https://www.cookieyes.com/product/cookie-consent/?ref=cypbcyb&utm_source=cookie-banner&utm_medium=fl-branding
+                  - img [ref=f3e48]
+    - region "Notifications alt+T"
+  - iframe [ref=e218]:
+    
+```
