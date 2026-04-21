@@ -6,6 +6,6 @@
   var script = document.createElement("script");
   script.id = "cookieyes";
   script.type = "text/javascript";
-  script.src = "https://cdn-mojoview.uk/client_data/5b33ce7f66e8b82bac20a20712cb6dc0/script.js";
+  script.src = "https://cdn-cookieyes.com/client_data/d7f0c55ba995b598ff1c2b2750d5b486/script.js";
   document.head.appendChild(script);
 })();
